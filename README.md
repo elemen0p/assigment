@@ -42,4 +42,6 @@ On prometheus.yml we using a file_sd_configs in order to pull the target from th
 * prometheus.yml - The config file indicates where we get the targets from
 
 # Final result
+![image](https://github.com/user-attachments/assets/b0590435-facc-4c19-a7f1-80ab40ca2c5d)
 
+![image](https://github.com/user-attachments/assets/ecbed8d6-a756-4982-af1a-006fcb1642a2)
