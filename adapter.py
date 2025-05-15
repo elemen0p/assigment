@@ -41,4 +41,4 @@ while True:
         print(f"Error: {e}")
     
     # Sleep for 60 seconds
-    time.sleep(60)
+    time.sleep(30)
