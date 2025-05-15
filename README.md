@@ -32,3 +32,11 @@ Your goal in this exercise is to:
 * You have up to 2 hours to complete the exercise.
 * Feel free to code it in any language you would like and use any framework / library / snippet of code you find.
 * We are available to answer any questions you may have, so feel free to ask :smile:.
+
+# My solution
+According to this guide: https://blog.incidenthub.cloud/A-Beginners-Guide-To-Service-Discovery-in-Prometheus and prometheus docs, it seems that our inventory service doesn't serve the metrics on the right format that prometheus and http_sd expects.
+In order to find a solution I'm using an adapter.py file which take the target from the invnetory service and save it on a file with the right targets and labels format which is being used as a shared volume between the container runs adapter.py and the container runs prometheus.
+On prometheus.yml we using a file_sd_configs in order to pull the target from the file (the sahred volume) and we pulling each 30 seconds.
+* adapter.py - Adapter script which takes the targets served by the inventory service and save them in the right format into a file
+* docker-compose.yml - Orchestrates the creation of the inventory-service (now the image is saved on my public repo), the adapter container and the prometheus container
+* prometheus.yml - The config file indicates where we get the targets from
